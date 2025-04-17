@@ -3,11 +3,12 @@
 include_once "database.php";
 
 $email = $_POST["email"];
-$password = $_POST["pass"];
+$pass = $_POST["pass"];
 
-$sql = "INSERT INTO users (email, pass) VALUES ('?','?')";
+$sql = "INSERT INTO users (email, pass) VALUES (?,?)";
 
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$email, $password]);
+$stmt->execute([$email, $pass]);
 
 header("Location:users.php");
+?>
